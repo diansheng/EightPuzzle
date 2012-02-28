@@ -5,6 +5,8 @@
  * @author LDS
  *
  */
+import java.lang.Math;
+
 public class StateNode {
 	
 	public int [] seq;//seq stands for sequence/ current arrangement
@@ -31,6 +33,31 @@ public class StateNode {
 		for (int i=0;i<9;i++)
 			count=this.seq[i]==sn.seq[i]?count:count+1;
 		return count;
+	}
+	
+	//make movement according to user input	
+	public void operate(int nextmove){
+		int pos0, pos_nextmove;//index number of 0 and nextmove
+		for(int i=0;i<9;i++)
+		{
+			if(arr[i]==0) 
+			{
+				pos0=i;
+				continue;
+			}
+			if(arr[i]==nextmove)
+			{
+				pos_nextmove==i;
+				continue;
+			}
+		}
+		int diff=Math.abs(pos0-pos_nextmove);
+		if (diff==1||diff==3)
+		{
+			seq[pos0]=seq[pos_nextmove];
+			seq[pos_nextmove]=0;
+		}
+		print();
 	}
 	
 	void print()
