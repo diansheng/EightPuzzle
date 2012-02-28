@@ -37,12 +37,12 @@ public class StateNode {
 	
 	//make movement according to user input	
 	public void operate(int nextmove){
-		int pos0, pos_nextmove;//index number of 0 and nextmove
+		int posO, pos_nextmove;//index number of 0 and nextmove
 		for(int i=0;i<9;i++)
 		{
 			if(arr[i]==0) 
 			{
-				pos0=i;
+				posO=i;
 				continue;
 			}
 			if(arr[i]==nextmove)
@@ -51,10 +51,10 @@ public class StateNode {
 				continue;
 			}
 		}
-		int diff=Math.abs(pos0-pos_nextmove);
-		if (diff==1||diff==3)
+		int diff=Math.abs(posO-pos_nextmove);
+		if (posO%3==pos_nextmove%3||(int)(posO/3)==(int)(pos_nextmove/3))
 		{
-			seq[pos0]=seq[pos_nextmove];
+			seq[posO]=seq[pos_nextmove];
 			seq[pos_nextmove]=0;
 		}
 		print();
