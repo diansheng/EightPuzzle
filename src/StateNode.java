@@ -5,6 +5,8 @@
  * @author LDS
  *
  */
+import java.lang.Math;
+
 public class StateNode {
 	
 	public int [] seq;//seq stands for sequence/ current arrangement
@@ -31,6 +33,40 @@ public class StateNode {
 		for (int i=0;i<9;i++)
 			count=this.seq[i]==sn.seq[i]?count:count+1;
 		return count;
+	}
+	
+	//make movement according to user input	
+	public void operate(int nextmove){
+		int posO, pos_nextmove;//index number of 0 and nextmove
+		posO=9;
+		pos_nextmove=9;
+		for(int i=0;i<9;i++)
+		{
+			if(seq[i]==0) 
+			{
+				posO=i;
+				continue;
+			}
+			if(seq[i]==nextmove)
+			{
+				pos_nextmove=i;
+				continue;
+			}
+	      	}
+		if (posO==9||pos_nextmove==9)
+		    {
+			System.out.println("Invalid numberred block");
+			posO=pos_nextmove=9;
+		    }
+		else{
+			if (posO%3==pos_nextmove%3||(int)(posO/3)==(int)(pos_nextmove/3))
+			    {
+				seq[posO]=seq[pos_nextmove];
+				seq[pos_nextmove]=0;
+			    }
+			else 	System.out.println("Invalid numberred block");
+		    }
+		print();
 	}
 	
 	void print()

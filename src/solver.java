@@ -1,6 +1,5 @@
-import java.util.Stack<E>;
-
-public class solver {
+import java.util.*;
+class solver {
 	
 	Stack step;//
 	Stack select;
