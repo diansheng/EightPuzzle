@@ -52,11 +52,10 @@ public class StateNode {
 				pos_nextmove=i;
 				continue;
 			}
-	      	}
-		if (posO==9||pos_nextmove==9)
+		}
+		if (posO==9||pos_nextmove==9||posO==pos_nextmove)
 		    {
-			System.out.println("Invalid numberred block");
-			posO=pos_nextmove=9;
+			System.out.println("Invalid block number");
 		    }
 		else{
 			if (posO%3==pos_nextmove%3||(int)(posO/3)==(int)(pos_nextmove/3))
@@ -64,9 +63,8 @@ public class StateNode {
 				seq[posO]=seq[pos_nextmove];
 				seq[pos_nextmove]=0;
 			    }
-			else 	System.out.println("Invalid numberred block");
+			else 	System.out.println("Invalid block number");
 		    }
-		print();
 	}
 	
 	void print()
@@ -74,6 +72,5 @@ public class StateNode {
 		System.out.println(seq[0]+" "+seq[1]+" "+seq[2]);
 		System.out.println(seq[3]+" "+seq[4]+" "+seq[5]);
 		System.out.println(seq[6]+" "+seq[7]+" "+seq[8]);
-	}
-	
+	}	
 }

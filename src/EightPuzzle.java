@@ -15,7 +15,6 @@ public class EightPuzzle {
 	
 	
 	public static void main(String[] args) {
-
 		//game starts, welcome to users
 		System.out.println("Welcome to world of 8 puzzle!");
 		System.out.println("Solving the puzzle below with the 0 indicating space");
@@ -54,7 +53,7 @@ public class EightPuzzle {
 				//print solve
 			}
 			else
-				System.out.println("Invalid input");			
+				System.out.println("Invalid input. Please check your spelling.");			
 		}
 		}
 		
