@@ -65,7 +65,7 @@ public class StateNode {
 			    }
 			else 	System.out.println("Invalid block number");
 		    }
-	}
+		}
 	
 	void print()
 	{
