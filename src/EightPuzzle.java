@@ -12,11 +12,10 @@ import java.lang.*;
 import java.util.*;
 
 public class EightPuzzle {
-
-	public static final int [] goal = {0,1,2,3,4,5,6,7,8};
-	public static final StateNode Goal= new StateNode (goal);
+	
 	
 	public static void main(String[] args) {
+
 		//game starts, welcome to users
 		System.out.println("Welcome to world of 8 puzzle!");
 		System.out.println("Solving the puzzle below with the 0 indicating space");
@@ -61,6 +60,8 @@ public class EightPuzzle {
 		
 	}
 	
+	public static final int [] goal = {0,1,2,3,4,5,6,7,8};
+	public static final StateNode Goal= new StateNode (goal);
 	public static StateNode generator()
 	{
 		Random rgen = new Random();  // Random number generator
