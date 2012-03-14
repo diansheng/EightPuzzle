@@ -13,8 +13,11 @@ import java.util.*;
 
 public class EightPuzzle {
 	
+	public static final int [] goal = {0,1,2,3,4,5,6,7,8};
 	
 	public static void main(String[] args) {
+		
+
 		//game starts, welcome to users
 		System.out.println("Welcome to world of 8 puzzle!");
 		System.out.println("Solving the puzzle below with the 0 indicating space");
@@ -22,7 +25,6 @@ public class EightPuzzle {
 		
 		//generate an 8 puzzle question
 		StateNode sn = generator();
-		
 		Scanner scanner = new Scanner(System.in);
 		boolean flag=true;
 		String help="I give up.";
@@ -31,13 +33,13 @@ public class EightPuzzle {
 		{
 		//print out current 8 puzzle
 		sn.print();
-		System.out.println("Type "+help+" to see solution."); 
+		System.out.println("Type <"+help+"> to see solution."); 
 		//read in user's command
 		int nextmove= scanner.nextInt();
 		if (nextmove!=0)//if user doesn't give up
 		{
 			sn.operate(nextmove);
-			if (sn.rel==0)
+			if (sn.getRel()==0)
 			{
 				flag=false;
 				System.out.println("Congratulations!!");
@@ -56,11 +58,11 @@ public class EightPuzzle {
 				System.out.println("Invalid input. Please check your spelling.");			
 		}
 		}
-		
+		System.out.println("Game over.");
 	}
 	
-	public static final int [] goal = {0,1,2,3,4,5,6,7,8};
-	public static final StateNode Goal= new StateNode (goal);
+	public static final StateNode Goal= new StateNode (EightPuzzle.goal);
+	
 	public static StateNode generator()
 	{
 		Random rgen = new Random();  // Random number generator
@@ -76,7 +78,7 @@ public class EightPuzzle {
 			}
 			//build up a statenode and return if solvable
 			sn=new StateNode(arr);
-		}while((solver.isSolvable(sn)));
+		}while(!solver.isSolvable(sn));
 		return sn;
 	}
 }

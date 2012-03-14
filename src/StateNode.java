@@ -7,23 +7,28 @@
  */
 import java.lang.Math;
 
-public class StateNode {
-	
+public class StateNode {	
+
 	public int [] seq;//seq stands for sequence/ current arrangement
-	int rel;//rel stands for relevence
+	int rel;//rel stands for relevance
 	int space;//index of the empty space
-	//constructor
+	
+	//constructor	
 	public StateNode(int [] seq){
 		//if seq.length==9;
 		this.seq=seq;
-		rel=difference(EightPuzzle.Goal);
 	}
 	
 	public StateNode(int [] seq, int index){
 		//if seq.length==9;
 		this.seq=seq;
-		rel=difference(EightPuzzle.Goal);
 		space=index;
+	}
+	
+	//get relevance which is used in solving
+	public int getRel()	{
+		rel=difference(EightPuzzle.Goal);
+		return rel;
 	}
 	
 	//tell how many digits different of two states
